@@ -1,8 +1,10 @@
 <center><h1> <%= @user.username %>'s <%= @bag.name %> bag</h1><center>
-<center><p>Look at all of this candy!</p></center><br><br><br><br>
-<br><br><br><br><br><br>
-<a href="/candy/new">Add Candy</a>
-<a href="/candy/delete">Remove Candy</a>
+<center><p>Look at all of this candy!</p></center><br><br>
+<br><br>
+<%@bag.candies.each do |candy|%>
+  <p> <%= candy.name%> - <%= candy.rating%></p><br><br><br>
+<%end%>
+<a href="/candy/<%= @bag.id %>/new">Add Candy</a>
 <br><br>
 <center><p>Rate this bag:</p></center>
 <input type="radio" name="rating" value="1"> 1
