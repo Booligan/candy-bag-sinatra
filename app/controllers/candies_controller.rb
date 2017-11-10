@@ -1,0 +1,3 @@
+class CandiesController < ApplicationController
+
+end
