@@ -1,0 +1,10 @@
+<center><h1> <%= @user.username %>'s bags</h1><center><br><br><br><br>
+
+<% @bags.each do |bag| %>
+  <ul>
+    <li><a href="/bags/<%=@user.username%>/<%=bag.id%>"><%= bag.name%></a></li>
+  </ul>
+  <br>
+  <%end%>
+
+<br><br><br><br><br><br><a href="/bags/new">Create a new bag</a>
