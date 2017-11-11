@@ -1,15 +1,18 @@
 <center><h1> <%= @user.username %>'s <%= @bag.name %> bag</h1><center>
-<center><p>Look at all of this candy!</p></center><br><br>
-<br><br>
+<center><p>Look at all of this candy!</p></center>
+
+<p>Candy - Rating</p><br><br>
 <%@bag.candies.each do |candy|%>
   <p> <%= candy.name%> - <%= candy.rating%></p><br><br><br>
 <%end%>
 <a href="/candy/<%= @bag.id %>/new">Add Candy</a>
 <br><br>
-<center><p>Rate this bag:</p></center>
-<input type="radio" name="rating" value="1"> 1
-<input type="radio" name="rating" value="2"> 2
-<input type="radio" name="rating" value="3"> 3
-<input type="radio" name="rating" value="4"> 4
-<input type="radio" name="rating" value="5"> 5
-<input type="submit" name="" value="submit">
+<form method="post" action="/bags/<%= @user.username %>/<%= @bag.id %>"
+  <center><p>Rate this bag:</p></center>
+  <input type="radio" name="rating" value="1"> 1
+  <input type="radio" name="rating" value="2"> 2
+  <input type="radio" name="rating" value="3"> 3
+  <input type="radio" name="rating" value="4"> 4
+  <input type="radio" name="rating" value="5"> 5
+  <input type="submit" name="" value="submit">
+</form>

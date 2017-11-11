@@ -40,4 +40,11 @@ class BagsController < ApplicationController
     erb :"bags/bag"
   end
 
+  post '/bags/:username/:bagid' do
+    @user = User.find_by(username: params[:username])
+    @bag = Bag.find_by_id(params[:bagid])
+    @bag.update(rating: params[:rating])
+    redirect to "/bags/#{@user.username}"
+  end
+
 end
