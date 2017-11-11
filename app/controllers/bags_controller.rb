@@ -17,6 +17,11 @@ class BagsController < ApplicationController
     end
   end
 
+  get '/bags/public' do
+    @users = User.all
+    erb :"bags/public"
+  end
+
   get '/bags/:username' do
     @user = User.find_by(username: params[:username])
     @bags = @user.bags
@@ -44,6 +49,13 @@ class BagsController < ApplicationController
     @user = User.find_by(username: params[:username])
     @bag = Bag.find_by_id(params[:bagid])
     @bag.update(rating: params[:rating])
+    redirect to "/bags/#{@user.username}"
+  end
+
+  post '/bags/:username/:bagid/delete' do
+    @user = User.find_by(username: params[:username])
+    @bag = Bag.find_by_id(params[:bagid])
+    @bag.delete
     redirect to "/bags/#{@user.username}"
   end
 

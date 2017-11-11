@@ -7,6 +7,13 @@
 <%end%>
 <a href="/candy/<%= @bag.id %>/new">Add Candy</a>
 <br><br>
+
+<form method="post" action="/bags/<%= @user.username %>/<%= @bag.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete bag">
+</form>
+<br><br>
+
 <form method="post" action="/bags/<%= @user.username %>/<%= @bag.id %>"
   <center><p>Rate this bag:</p></center>
   <input type="radio" name="rating" value="1"> 1
