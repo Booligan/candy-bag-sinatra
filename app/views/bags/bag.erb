@@ -4,7 +4,7 @@
 <p>Candy - Rating</p><br><br>
 <%if !@bag.candies.empty?%>
   <%@bag.candies.each do |candy|%>
-    <p> <%= candy.name%> - <%= candy.rating%></p><br><br><br>
+    <a href="/candy/<%= @bag.id %>/<%= candy.id %>/edit"><%= candy.name%> - <%=candy.rating%></a><br>
   <%end%>
 <%else%>
   <p>EMPTY BAG</p>

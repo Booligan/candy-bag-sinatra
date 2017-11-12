@@ -1,8 +1,8 @@
 class CandiesController < ApplicationController
 
-  get '/candy/:id/new' do
+  get '/candy/:bagid/new' do
     if logged_in?
-      @bag = Bag.find_by_id(params[:id])
+      @bag = Bag.find_by_id(params[:bagid])
       erb :"candies/create_candy"
     else
       redirect to '/login'
@@ -20,6 +20,30 @@ class CandiesController < ApplicationController
       @bag.candies << @candy
       redirect to "/bags/#{@user.username}/#{@bag.id}"
     end
+  end
+
+  get '/candy/:bagid/:candyid/edit' do
+    @bag = Bag.find_by_id(params[:bagid])
+    @candy = Candy.find_by_id(params[:candyid])
+    erb :"candies/edit"
+  end
+
+  post '/candy/:bagid/:candyid' do
+    @user = User.find_by_id(session[:user_id])
+    @bag = Bag.find_by_id(params[:bagid])
+    @candy = Candy.find_by_id(params[:candyid])
+    @candy.name = params[:name]
+    @candy.rating = params[:rating]
+    @candy.save
+    redirect to "/bags/#{@user.username}/#{@bag.id}"
+  end
+
+  post '/candy/:bagid/:candyid/delete' do
+    @user = User.find_by_id(session[:user_id])
+    @bag = Bag.find_by_id(params[:bagid])
+    @candy = Candy.find_by_id(params[:candyid])
+    @candy.delete
+    redirect to "/bags/#{@user.username}/#{@bag.id}"
   end
 
 end
