@@ -2,8 +2,12 @@
 <center><p>Look at all of this candy!</p></center>
 
 <p>Candy - Rating</p><br><br>
-<%@bag.candies.each do |candy|%>
-  <p> <%= candy.name%> - <%= candy.rating%></p><br><br><br>
+<%if !@bag.candies.empty?%>
+  <%@bag.candies.each do |candy|%>
+    <p> <%= candy.name%> - <%= candy.rating%></p><br><br><br>
+  <%end%>
+<%else%>
+  <p>EMPTY BAG</p>
 <%end%>
 <a href="/candy/<%= @bag.id %>/new">Add Candy</a>
 <br><br>

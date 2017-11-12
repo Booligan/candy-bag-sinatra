@@ -1,13 +1,15 @@
 <center><h1> <%= @user.username %>'s bags</h1><center><br><br><br><br>
 
-<p>Bag - Rating</p>
+<%if !@user.bags.empty?%>
+  <p>Bag - Rating</p>
 
-<% @bags.each do |bag| %>
-  <ul>
-    <li><a href="/bags/<%=@user.username%>/<%=bag.id%>"><%= bag.name%> - <%=bag.rating%></a></li>
-  </ul>
-  <br>
+  <% @bags.each do |bag| %>
+    <a href="/bags/<%=@user.username%>/<%=bag.id%>"><%= bag.name%> - <%=bag.rating%></a>
+    <br>
   <%end%>
+<%else%>
+    <p>NO BAGS, PLEASE CREATE A BAG</p>
+<%end%>
 
 <br><br><br><br><br><br><a href="/bags/new">Create a new bag</a><br><br>
 <a href="/bags">Back</a>

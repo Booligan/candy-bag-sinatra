@@ -35,7 +35,7 @@ class BagsController < ApplicationController
       @user = User.find_by_id(session[:user_id])
       @bag = Bag.create(params)
       @user.bags << @bag
-      redirect to "/bags/#{@user.username}"
+      redirect to "/bags/#{@user.username}/#{@bag.id}"
     end
   end
 
