@@ -1,4 +1,9 @@
 <h1>Log in</h1><br><br>
+
+<% if flash.has?(:message) %>
+  <p style="color:red"> <%= flash[:message] %> </p>
+<% end %>
+
 <form method="post" action="/login">
   <input type="text" name="username" placeholder="Username:"><br><br>
   <input type="password" name="password" placeholder="Password:"><br><br>

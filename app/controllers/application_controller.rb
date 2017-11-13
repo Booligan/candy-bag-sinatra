@@ -3,6 +3,7 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
 
   configure do
+    use Rack::Flash
     set :public_folder, 'public'
     enable :sessions unless test?
     set :session_secret, "secret"

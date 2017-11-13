@@ -12,6 +12,7 @@ class CandiesController < ApplicationController
   post '/candy/:bagid' do
     if params[:name].empty?
       @bag = Bag.find_by_id(params[:bagid])
+      flash[:message] = "Candy needs a name."
       redirect to "/candy/#{@bag.id}/new"
     else
       @user = User.find_by_id(session[:user_id])
@@ -28,7 +29,7 @@ class CandiesController < ApplicationController
     erb :"candies/edit"
   end
 
-  post '/candy/:bagid/:candyid' do
+  patch '/candy/:bagid/:candyid' do
     @user = User.find_by_id(session[:user_id])
     @bag = Bag.find_by_id(params[:bagid])
     @candy = Candy.find_by_id(params[:candyid])
@@ -36,7 +37,7 @@ class CandiesController < ApplicationController
     redirect to "/bags/#{@user.username}/#{@bag.id}"
   end
 
-  post '/candy/:bagid/:candyid/delete' do
+  delete '/candy/:bagid/:candyid/delete' do
     @user = User.find_by_id(session[:user_id])
     @bag = Bag.find_by_id(params[:bagid])
     @candy = Candy.find_by_id(params[:candyid])

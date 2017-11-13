@@ -34,6 +34,7 @@ class BagsController < ApplicationController
 
   post '/bags' do
     if params[:name].empty?
+      flash[:message] = "Bag needs a name."
       redirect to '/bags/new'
     else
       @user = User.find_by_id(session[:user_id])
@@ -60,7 +61,7 @@ class BagsController < ApplicationController
     redirect to "/bags/#{@user.username}"
   end
 
-  post '/bags/:username/:bagid/delete' do
+  delete '/bags/:username/:bagid/delete' do
     @user = User.find_by(username: params[:username])
     @bag = Bag.find_by_id(params[:bagid])
     @bag.delete

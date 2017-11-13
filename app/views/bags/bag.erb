@@ -7,7 +7,7 @@
     <a href="/candy/<%= @bag.id %>/<%= candy.id %>/edit"><%= candy.name%> - <%=candy.rating%></a><br>
   <%end%>
 <%else%>
-  <p>EMPTY BAG</p>
+  <p style="color:orange">EMPTY BAG</p>
 <%end%>
 <br><br><br>
 <a href="/candy/<%= @bag.id %>/new">Add Candy</a>

@@ -1,4 +1,11 @@
 <center><h1>Add Candy</h1><center><br><br><br><br>
+
+  <% if flash.has?(:message) %>
+    <br>
+    <p style="color:red"> <%= flash[:message] %> </p>
+    <br><br>
+  <% end %>
+  
   <form method="post" action="/candy/<%= @bag.id %>">
     <p>Candy name:</p> <input type="text" name="name"><br>
     <br>
