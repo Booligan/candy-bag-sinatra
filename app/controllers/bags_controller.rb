@@ -33,7 +33,7 @@ class BagsController < ApplicationController
   end
 
   post '/bags' do
-    if params[:name] == nil
+    if params[:name].empty?
       redirect to '/bags/new'
     else
       @user = User.find_by_id(session[:user_id])

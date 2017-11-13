@@ -1,14 +1,14 @@
 <center><h1>Edit Candy</h1><center><br><br><br><br>
   <form method="post" action="/candy/<%= @bag.id %>/<%= @candy.id %>">
     <input id="hidden" type="hidden" name="_method" value="patch">
-    <p>Candy name:</p> <input type="text" name="name" value="<%= @candy.name%>"><br>
+    <p>Candy name:</p> <input type="text" name="name" value= <%= @candy.name%> ><br>
     <br>
     <center><p>Candy Rating:</p></center>
-    <input type="radio" name="rating" value="1"> 1
-    <input type="radio" name="rating" value="2"> 2
-    <input type="radio" name="rating" value="3"> 3
-    <input type="radio" name="rating" value="4"> 4
-    <input type="radio" name="rating" value="5"> 5
+    <input type="radio" name="rating" value="1" <%='checked' if @candy.rating == 1 %> > 1 </input>
+    <input type="radio" name="rating" value="2" <%='checked' if @candy.rating == 2 %> > 2 </input>
+    <input type="radio" name="rating" value="3" <%='checked' if @candy.rating == 3 %> > 3 </input>
+    <input type="radio" name="rating" value="4" <%='checked' if @candy.rating == 4 %> > 4 </input>
+    <input type="radio" name="rating" value="5" <%='checked' if @candy.rating == 5 %> > 5 </input>
     <br><br>
     <input type="submit" name="" value="Submit">
   </form>

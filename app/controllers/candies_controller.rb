@@ -10,7 +10,7 @@ class CandiesController < ApplicationController
   end
 
   post '/candy/:bagid' do
-    if params[:name] == nil
+    if params[:name].empty?
       @bag = Bag.find_by_id(params[:bagid])
       redirect to "/candy/#{@bag.id}/new"
     else

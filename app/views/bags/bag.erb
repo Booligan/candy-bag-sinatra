@@ -21,10 +21,12 @@
 
 <form method="post" action="/bags/<%= @user.username %>/<%= @bag.id %>"
   <center><p>Rate this bag:</p></center>
-  <input type="radio" name="rating" value="1"> 1
-  <input type="radio" name="rating" value="2"> 2
-  <input type="radio" name="rating" value="3"> 3
-  <input type="radio" name="rating" value="4"> 4
-  <input type="radio" name="rating" value="5"> 5
+  <input type="radio" name="rating" value="1" <%='checked' if @bag.rating == 1 %> > 1 </input>
+  <input type="radio" name="rating" value="2" <%='checked' if @bag.rating == 2 %> > 2 </input>
+  <input type="radio" name="rating" value="3" <%='checked' if @bag.rating == 3 %> > 3 </input>
+  <input type="radio" name="rating" value="4" <%='checked' if @bag.rating == 4 %> > 4 </input>
+  <input type="radio" name="rating" value="5" <%='checked' if @bag.rating == 5 %> > 5 </input>
   <input type="submit" name="" value="submit">
 </form>
+<br><br><br>
+<a href="/bags">Home</a>
