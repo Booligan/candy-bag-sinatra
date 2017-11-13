@@ -25,7 +25,11 @@ class BagsController < ApplicationController
   get '/bags/:username' do
     @user = User.find_by(username: params[:username])
     @bags = @user.bags
-    erb :"bags/show"
+    if logged_in? && current_user == @user
+      erb :"bags/show"
+    else
+      redirect to '/login'
+    end
   end
 
   post '/bags' do
@@ -42,7 +46,11 @@ class BagsController < ApplicationController
   get '/bags/:username/:bagid' do
     @user = User.find_by(username: params[:username])
     @bag = Bag.find_by_id(params[:bagid])
-    erb :"bags/bag"
+    if logged_in? && current_user == @user
+      erb :"bags/bag"
+    else
+      erb :"bags/friend"
+    end
   end
 
   post '/bags/:username/:bagid' do

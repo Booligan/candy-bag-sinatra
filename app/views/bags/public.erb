@@ -1,9 +1,9 @@
 <center><h1>Public bags</h1><br><br><center>
 <% @users.each do |user|%>
   <%if !user.bags.empty?%>
-      <p><%= user.username %>'s bags<p><br>
+      <p><%= user.username %>'s bags<p>
       <% user.bags.each do |bag|%>
-        <a href="/bags/<%=user.username%>/<%=bag.id%>"><%= bag.name%> - <%=bag.rating%></a><br>
+        <a href="/bags/<%=user.username%>/<%=bag.id%>"><%= bag.name%> - <%=bag.rating%></a><br><br>
       <%end%>
   <%end%>
 <%end%>

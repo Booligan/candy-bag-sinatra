@@ -32,9 +32,7 @@ class CandiesController < ApplicationController
     @user = User.find_by_id(session[:user_id])
     @bag = Bag.find_by_id(params[:bagid])
     @candy = Candy.find_by_id(params[:candyid])
-    @candy.name = params[:name]
-    @candy.rating = params[:rating]
-    @candy.save
+    @candy.update(name: params[:name], rating: params[:rating])
     redirect to "/bags/#{@user.username}/#{@bag.id}"
   end
 
