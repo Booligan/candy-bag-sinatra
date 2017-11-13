@@ -1,10 +1,10 @@
-Candy Bag
+# Candy Bag
 
-Usage
+## Usage
 
 Welcome to Candy Bag! Every Halloween, children look forward to collecting candy from around the neighborhood. This app will not only help them keep an inventory of their sweets, but they can also compare their bags with other users.
 
-Installation
+### Installation
 
 Simply clone this repository,
 
