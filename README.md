@@ -6,7 +6,7 @@ Welcome to Candy Bag! Every Halloween, children look forward to collecting candy
 
 ### Installation
 
-You can view the page simply by navitgating to candybag.herokuapp.com on a browser, or running it on your local server with the steps below:
+You can view the page simply by navigating to https://candybag.herokuapp.com on a browser, or running it on your local server with the steps below:
 
 Simply clone this repository,
 
