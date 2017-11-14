@@ -119,7 +119,7 @@ DEPENDENCIES
   bcrypt
   capybara
   database_cleaner!
-  pg
+  pg (~> 0.15)
   pry
   rack-flash3
   rack-test
