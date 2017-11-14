@@ -24,6 +24,6 @@ group :development do
 end
 
 group :production do
-   gem 'pg', '~> 0.15'
+   gem 'pg'
    gem 'activerecord-postgresql-adapter'
 end
